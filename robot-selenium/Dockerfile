@@ -21,6 +21,7 @@ ENV PABOT  ${PABOT:-0.44}
 ENV PDFMERGE  ${PDFMERGE:-0.0.7}
 ENV FAKER  ${FAKER:-0.8.11}
 ENV PYMYSQL ${PYMYSQL:-0.7.11}
+ENV ROBOT_REQUESTS ${ROBOT_REQUESTS:-0.4.6}
 
 WORKDIR /robot
 
@@ -54,6 +55,7 @@ RUN pip install pdfmerge==$PDFMERGE
 RUN pip install faker==$FAKER
 RUN pip install pymysql==$PYMYSQL
 RUN pip install robotframework-sudslibrary
+RUN pip install robotframework-requests==$ROBOT_REQUESTS
 
 ENV ORACLE_HOME /opt/oracle/instantclient_12_1
 ENV LD_RUN_PATH=$ORACLE_HOME
