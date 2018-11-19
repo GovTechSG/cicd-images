@@ -62,6 +62,7 @@ RUN pip install robotframework-sudslibrary
 RUN pip install robotframework-requests==$ROBOT_REQUESTS
 RUN pip install lxml==$LXML
 RUN pip install urllib3==$URLLIB3
+RUN pip install --upgrade google-api-python-client oauth2client
 
 ENV ORACLE_HOME /opt/oracle/instantclient_12_1
 ENV LD_RUN_PATH=$ORACLE_HOME
