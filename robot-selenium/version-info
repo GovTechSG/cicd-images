@@ -7,10 +7,14 @@ VERSION_DATABASELIBRARY="$(pip show robotframework-databaselibrary | grep Versio
 VERSION_PABOT="$(pip show robotframework-pabot | grep Version | cut -f 2 -d ' ')";
 VERSION_PDFMERGE="$(pip show pdfmerge | grep Version | cut -f 2 -d ' ')";
 VERSION_FAKER="$(pip show faker | grep Version | cut -f 2 -d ' ')";
-VERSION_CHROMEDRIVER="$(chromedriver --version | cut -f 2 -d ' ')"
-VERSION_CHROME="$(chrome --version | cut -f 3 -d ' ')"
-VERSION_SUDSLIBRARY="$(pip show robotframework-sudslibrary | grep Version | cut -f 2 -d ' ')"
-VERSION_ORACLE="$(pip show cx_Oracle | grep version | cut -f 2 -d ' ')"
+VERSION_CHROMEDRIVER="$(chromedriver --version | cut -f 2 -d ' ')";
+VERSION_CHROME="$(chrome --version | cut -f 3 -d ' ')";
+VERSION_SUDSLIBRARY="$(pip show robotframework-sudslibrary | grep Version | cut -f 2 -d ' ')";
+VERSION_ORACLE="$(pip show cx_Oracle | grep Version | cut -f 2 -d ' ')";
+VERSION_LXML="$(pip show lxml | grep Version | cut -f 2 -d ' ')";
+VERSION_URLLIB3="$(pip show urllib3 | grep Version | cut -f 2 -d ' ')";
+VERSION_GOOGLE_API_CLIENT="$(pip show google-api-python-client | grep Version | cut -f 2 -d ' ')";
+VERSION_OAUTH2CLIENT="$(pip show oauth2client | grep Version | cut -f 2 -d ' ')";
 
 printf "robotframework-lib:${VERSION_ROBOTFRAMEWORK}\n";
 printf "robotframework-selenium2library:${VERSION_SELENIUM2LIBRARY}\n";
@@ -22,4 +26,8 @@ printf "sudsLibrary:${VERSION_SUDSLIBRARY}\n";
 printf "cx_oracle:${VERSION_ORACLE}\n";
 printf "faker-lib:${VERSION_FAKER}\n";
 printf "chromedriver:${VERSION_CHROMEDRIVER}\n";
-printf "chrome:${VERSION_CHROME}\n"
+printf "chrome:${VERSION_CHROME}\n";
+printf "lxml:${VERSION_LXML}\n";
+printf "urllib3:${VERSION_URLLIB3}\n";
+printf "google-api-python-client:${VERSION_GOOGLE_API_CLIENT}\n";
+printf "oauth2client:${VERSION_OAUTH2CLIENT}\n";

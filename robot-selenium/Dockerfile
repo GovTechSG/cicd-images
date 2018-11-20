@@ -25,6 +25,8 @@ ENV PYMYSQL ${PYMYSQL:-0.7.11}
 ENV ROBOT_REQUESTS ${ROBOT_REQUESTS:-0.4.6}
 ENV URLLIB3 ${URLLIB3:-1.22}
 ENV LXML ${LXML:-4.2.1}
+ENV GOOGLE_API_CLIENT ${GOOGLE_API_CLIENT:-1.7.4}
+ENV OAUTH2CLIENT ${OAUTH2CLIENT:-4.1.3}
 
 WORKDIR /robot
 
@@ -62,7 +64,8 @@ RUN pip install robotframework-sudslibrary
 RUN pip install robotframework-requests==$ROBOT_REQUESTS
 RUN pip install lxml==$LXML
 RUN pip install urllib3==$URLLIB3
-RUN pip install --upgrade google-api-python-client oauth2client
+RUN pip install google-api-python-client==$GOOGLE_API_CLIENT
+RUN pip install oauth2client==$OAUTH2CLIENT
 
 ENV ORACLE_HOME /opt/oracle/instantclient_12_1
 ENV LD_RUN_PATH=$ORACLE_HOME
