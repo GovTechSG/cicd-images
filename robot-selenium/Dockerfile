@@ -14,20 +14,20 @@ RUN apt-get install -y python python-pip python-dev gcc wget curl unzip libfreet
 
 ENV TZ="Asia/Singapore"
 ENV CHROMEDRIVER_VERSION ${CHROMEDRIVER_VERSION:-2.41}
+ENV PYSOCKS ${PYSOCKS:-1.6.8}
 ENV ROBOTFRAMEWORK ${ROBOTFRAMEWORK:-3.0}
 ENV SELENIUM2LIBRARY  ${SELENIUM2LIBRARY:-1.7.4}
 ENV ROBOT_FAKER  ${ROBOT_FAKER:-3.0.0}
 ENV DATABASELIBRARY  ${DATABASELIBRARY:-0.8.1}
 ENV PABOT  ${PABOT:-0.44}
+ENV ROBOT_REQUESTS ${ROBOT_REQUESTS:-0.4.6}
 ENV PDFMERGE  ${PDFMERGE:-0.0.7}
 ENV FAKER  ${FAKER:-0.8.11}
 ENV PYMYSQL ${PYMYSQL:-0.7.11}
-ENV ROBOT_REQUESTS ${ROBOT_REQUESTS:-0.4.6}
 ENV URLLIB3 ${URLLIB3:-1.22}
 ENV LXML ${LXML:-4.2.1}
 ENV GOOGLE_API_CLIENT ${GOOGLE_API_CLIENT:-1.7.4}
 ENV OAUTH2CLIENT ${OAUTH2CLIENT:-4.1.3}
-
 WORKDIR /robot
 
 ADD utils/headless-chrome /usr/bin/headless-chrome
@@ -51,19 +51,20 @@ RUN curl -SLO "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSIO
   && unzip "chromedriver_linux64.zip" -d /usr/local/bin \
   && rm "chromedriver_linux64.zip"
 
+RUN pip install setuptools --upgrade
+RUN pip install pysocks==$PYSOCKS
 RUN pip install robotframework==$ROBOTFRAMEWORK
 RUN pip install robotframework-selenium2library==$SELENIUM2LIBRARY
 RUN pip install robotframework-faker==$ROBOT_FAKER
-RUN pip install robotframework-pabot==$PABOT
 RUN pip install robotframework-databaselibrary==$DATABASELIBRARY
-RUN pip install setuptools --upgrade
+RUN pip install robotframework-pabot==$PABOT
+RUN pip install robotframework-sudslibrary
+RUN pip install robotframework-requests==$ROBOT_REQUESTS
 RUN pip install pdfmerge==$PDFMERGE
 RUN pip install faker==$FAKER
 RUN pip install pymysql==$PYMYSQL
-RUN pip install robotframework-sudslibrary
-RUN pip install robotframework-requests==$ROBOT_REQUESTS
-RUN pip install lxml==$LXML
 RUN pip install urllib3==$URLLIB3
+RUN pip install lxml==$LXML
 RUN pip install google-api-python-client==$GOOGLE_API_CLIENT
 RUN pip install oauth2client==$OAUTH2CLIENT
 
