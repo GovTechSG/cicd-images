@@ -50,10 +50,10 @@ RUN addgroup -S ${GROUP} -g ${GROUPID} \
     ansible=${ANSIBLE} \
   && python3 -m ensurepip \
   && rm -r /usr/lib/python*/ensurepip \
-  && pip3 install --upgrade pip==${PIP} \
-  && pip3 install ansible-lint==${ANSIBLE_LINT} \
-  && pip3 install boto3==${BOTO3} \
-  && pip3 install boto==${BOTO2} \
+  && pip3 install --no-cache-dir --upgrade pip==${PIP} \
+  && pip3 install --no-cache-dir ansible-lint==${ANSIBLE_LINT} \
+  && pip3 install --no-cache-dir boto3==${BOTO3} \
+  && pip3 install --no-cache-dir boto==${BOTO2} \
   && ln -s /usr/bin/python3 /usr/bin/python \
   && rm -rf /usr/share/man/* \
     /usr/includes/* \
