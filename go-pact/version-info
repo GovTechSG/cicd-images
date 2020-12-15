@@ -1,0 +1,4 @@
+VERSION_GOLANG="$(go version | awk '{ print substr($3,3) }')";
+printf "golang:${VERSION_GOLANG}\n";
+VERSION_PACT_MOCK_SERVICE="$(pact-mock-service version)";
+printf "pact-mock-service:${VERSION_PACT_MOCK_SERVICE}\n";
