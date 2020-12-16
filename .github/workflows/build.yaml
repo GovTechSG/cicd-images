@@ -218,6 +218,9 @@ jobs:
     env:
       IMAGE_NAME: go-pact
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go-version: [1.14, 1.15]
     name: go-pact
     steps:
       - uses: actions/checkout@v1
@@ -231,9 +234,13 @@ jobs:
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
         if: "!contains(github.event.head_commit.message, '[force build]')"
+        with:
+          docker_build_args: GOLANG_MAJOR_VERSION=${{ matrix.go-version }}
         uses: ./.github/actions/build-and-publish
       - name: Build and Publish (force)
         if: "contains(github.event.head_commit.message, '[force build]')"
+        with:
+          docker_build_args: GOLANG_MAJOR_VERSION=${{ matrix.go-version }}
         uses: ./.github/actions/build-and-publish-force
 
   karma:
