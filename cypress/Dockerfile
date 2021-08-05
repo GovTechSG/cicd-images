@@ -1,4 +1,4 @@
-FROM cypress/browsers:node14.16.0-chrome89-ff86
+FROM cypress/browsers:node14.17.0-chrome91-ff89
 
 LABEL maintainer="jinjie" \
       description="Image used for running Cypress testing framework"
@@ -10,7 +10,7 @@ RUN npm install -g cypress mysql \
                    cypress-promise \
                    cypress-xpath \
                    eslint faker fs-extra moment prettier dotenv \
-                   lodash date-fns 
+                   lodash date-fns cypress-fail-fast
 
 COPY ./version-info /usr/bin
 
