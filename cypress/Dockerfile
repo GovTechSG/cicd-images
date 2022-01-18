@@ -9,7 +9,7 @@ RUN npm install -g cypress mysql \
                    cypress-eslint-preprocessor \
                    cypress-promise \
                    cypress-xpath \
-                   eslint faker@5.5.3 fs-extra moment prettier dotenv \
+                   eslint faker-js/faker fs-extra moment prettier dotenv \
                    lodash date-fns cypress-fail-fast
 
 COPY ./version-info /usr/bin
