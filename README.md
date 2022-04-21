@@ -17,6 +17,7 @@ https://gallery.ecr.aws/l5k6t5t7/cicd-images
 - Atlantis (`atlantis`)
 - Amazon Web Services CLI (`awscli`)
 - Cypress (`cypress`)
+- Playwright (`playwright`)
 - Docker-in-Docker (`dind`)
 - Google Kubernetes Engine CLI (`gkecli`)
 - Karma Test Runner (`karma`)
@@ -90,6 +91,17 @@ Canonical Tag: `cypress-<REPO_VERSION>` \
 Latest URL: `govtechsg/cicd-images:cypress-latest`
 
 ##### Notes
+
+#### `playwright`
+
+
+
+##### Notes
+
+- Playwright is an automation tool used for the integration tests (similar to Cypress)
+- We decided to use Playwright to simulate concurrent sessions which Cypress cannot simulate due to it's architectural limitation
+- This concurrent session tests are required to test the Singpass single active session rule
+- More info about Playwright: https://playwright.dev/docs/intro
 
 #### `dephash`
 
