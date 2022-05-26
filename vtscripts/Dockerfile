@@ -1,4 +1,4 @@
-FROM alpine:3.8.4
+FROM alpine:3.15
 LABEL maintainer="zephinzer <dev-at-joeir-dot-net>" \
       description="Version tagger container for use in CI pipelines"
 ENV APK_DEPENDENCIES="bash curl git jq vim" \

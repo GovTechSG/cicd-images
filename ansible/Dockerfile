@@ -1,4 +1,4 @@
-ARG alpine_ver=3.15.0
+ARG alpine_ver=3.15
 FROM alpine:${alpine_ver}
 LABEL maintainer="salihan" \
       description="Image containing Ansible and Ansible-lint for use in CI/CD pipelines"

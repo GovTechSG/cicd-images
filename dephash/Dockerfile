@@ -1,4 +1,4 @@
-FROM alpine:3.8.4
+FROM alpine:3.15
 LABEL maintainer="zephinzer <dev-at-joeir-dot-net>" \
       description="Dependency hasher image for use in CI containers"
 ENV APK_DEPENDENCIES="bash curl git jq vim" \

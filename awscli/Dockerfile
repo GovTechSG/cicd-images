@@ -1,5 +1,5 @@
-FROM alpine:3.10.3
-LABEL maintainer="gylsky <gylswork-at-gmail-com>" \
+FROM alpine:3.15
+LABEL maintainer="gyl <gylswork-at-gmail-com>" \
       description="Amazon Web Services CLI image for use in CI pipelines"
 ENV APK_DEPENDENCIES="bash curl git jq vim python3 make g++ docker" \
     PIP_DEPENDENCIES="awscli" \

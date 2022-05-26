@@ -14,3 +14,6 @@
 .history
 *.un~
 # End of https://www.gitignore.io/api/visualstudiocode
+
+## Jetbrain
+.idea
