@@ -1,15 +1,20 @@
 #!/bin/sh
 VERSION_GIT="$(git --version | cut -d ' ' -f 3)";
 VERSION_DOCKER="$(docker -v | cut -f 3 -d ' ' | cut -f 1 -d ',')";
-VERSION_DOCKER_COMPOSE="$(docker-compose -v | cut -f3 -d' ' | cut -f1 -d',')";
+VERSION_DOCKER_COMPOSE="$(docker-compose -v | cut -f4 -d' ' | sed 's/v//')";
+VERSION_PYTHON3="$(python3 --version | cut -f2 -d ' ')";
+VERSION_ZULU_JDK="$(java --version | grep 'Runtime Environment' | cut -f4 -d ' ' | cut -f1 -d '-' | sed 's/Zulu//')";
 ssh -V &>/tmp/sshv \
   && VERSION_SSL=$(cat /tmp/sshv) \
   && rm -rf /tmp/sshv;
 VERSION_OPENSSH="$(printf "${VERSION_SSL}" | cut -f 1 -d ' ' | cut -f 2 -d '_' | cut -f 1 -d ',')";
 VERSION_LIBRESSL="$(printf "${VERSION_SSL}" | cut -f 3 -d ' ')";
 VERSION_MYSQL_CLIENT="$(mysql --version | cut -f 4 -d ' ')"
+
 printf "git:${VERSION_GIT}\n";
 printf "docker:${VERSION_DOCKER}\n";
 printf "docker-compose:${VERSION_DOCKER_COMPOSE}\n";
+printf "python:${VERSION_PYTHON3}\n";
+printf "zulu-jdk:${VERSION_ZULU_JDK}\n"
 printf "openssh:${VERSION_OPENSSH}\n";
 printf "mysql-client:${VERSION_MYSQL_CLIENT}\n"
