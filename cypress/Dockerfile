@@ -3,7 +3,7 @@ FROM cypress/browsers:node14.17.6-chrome100-ff98
 LABEL maintainer="jinjie" \
       description="Image used for running Cypress testing framework"
     
-RUN npm install -g cypress mysql \
+RUN npm install -g cypress mysql pg \
                    mocha mocha-steps mochawesome mochawesome-merge \
                    mochawesome-report-generator \
                    cypress-eslint-preprocessor \
