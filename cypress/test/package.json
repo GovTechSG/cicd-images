@@ -1,0 +1,11 @@
+{
+  "name": "DockerTest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@faker-js/faker": "faker-js/faker",
+    "cypress": "^10.3.0",
+    "moment": "^2.29.3"
+  }
+}

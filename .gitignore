@@ -18,4 +18,5 @@
 ## Jetbrain
 .idea
 
-./test/**/*
+## Codes
+node_modules
