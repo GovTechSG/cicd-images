@@ -1,7 +1,6 @@
 FROM cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
 
-LABEL maintainer="jinjie" \
-      description="Image used for running Cypress testing framework"
+LABEL description="Image used for running Cypress testing framework"
 
 WORKDIR /app
 
