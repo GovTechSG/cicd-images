@@ -15,7 +15,7 @@ https://gallery.ecr.aws/l5k6t5t7/cicd-images
 - Alpine Linux (`alpine`)
 - Ansible (`ansible`)
 - Atlantis (`atlantis`)
-- Amazon Web Services CLI (`awscli`)
+- Amazon Web Services CLI (`awscli`): no longer maintained; use the official image from AWS, https://hub.docker.com/r/amazon/aws-cli
 - Cypress (`cypress`)
 - Playwright (`playwright`)
 - Docker-in-Docker (`dind`)

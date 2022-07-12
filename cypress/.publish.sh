@@ -26,6 +26,8 @@ else
   printf "Pushing [${TAG_LATEST}]... ";
   docker tag ${TAG} ${TAG_LATEST};
   docker push ${TAG_LATEST};
+  docker tag ${TAG} ${TAG_NODE_LATEST};
+  docker push ${TAG_NODE_LATEST};
   printf "Pushing [${EXISTENCE_REPO_URL}]... ";
   docker tag ${TAG} ${EXISTENCE_REPO_URL};
   docker push ${EXISTENCE_REPO_URL};
