@@ -6,6 +6,6 @@
   "dependencies": {
     "@faker-js/faker": "faker-js/faker",
     "cypress": "^10.3.0",
-    "moment": "^2.29.3"
+    "moment": "^2.29.4"
   }
 }
