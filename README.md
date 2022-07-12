@@ -68,23 +68,6 @@ This image also contains Ansible-lint and Boto3 so you can lint your Ansible pla
 Canonical Tag: `atlantis-<ANSIBLE_VERSION>` \
 Latest URL: `govtechsg/cicd-images:atlantis-latest`
 
-#### `awscli`
-
-Canonical Tag: `awscli-<AWS_CLI_VERSION>` \
-Latest URL: `govtechsg/cicd-images:awscli-latest`
-
-##### Notes
-
-Set the following environment variables to your AWS credentials to allow the AWS CLI tool to connect.
-
-```bash
-AWS_ACCESS_KEY_ID
-AWS_SECRET_ACCESS_KEY
-AWS_DEFAULT_REGION
-```
-
-- https://docs.aws.amazon.com/cli/latest/userguide/cli-environment.html
-
 #### `cypress`
 
 Canonical Tag: `cypress-<REPO_VERSION>` \
