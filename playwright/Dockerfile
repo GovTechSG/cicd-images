@@ -1,4 +1,7 @@
-FROM cypress/browsers:node14.15.0-chrome96-ff94
+# see build.yaml for actual version passed from pipeline
+ARG NODE_VERSION="14.19.0"
+
+FROM cypress/browsers:node${NODE_VERSION}-slim-chrome100-ff99-edge
 
 LABEL maintainer="ramesh_bask" \
       description="Image used for running concurrent sessions tests using Playwright"
