@@ -1,10 +1,10 @@
 # see build.yaml for actual version passed from pipeline
-ARG NODE_VERSION="14.19.0"
+ARG NODE_BROWSER_VERSION="16.14.2-slim-chrome103-ff102"
 
-FROM cypress/browsers:node${NODE_VERSION}-slim-chrome100-ff99-edge
+FROM cypress/browsers:node${NODE_BROWSER_VERSION}
 
 LABEL maintainer="ramesh_bask" \
-      description="Image used for running concurrent sessions tests using Playwright"
+      description="Image used for run Playwright testing framework"
 
 RUN npm install -g playwright
 RUN npx playwright install

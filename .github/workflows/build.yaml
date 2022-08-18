@@ -367,7 +367,7 @@ jobs:
     name: playwright
     strategy:
       matrix:
-        node-version: [ 14.19.0, 16.14.2 ]
+        node-browser-version: [ 16.14.2-slim-chrome103-ff102 ]
     steps:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
@@ -379,12 +379,12 @@ jobs:
       - name: Build and Publish
         if: "!contains(github.event.head_commit.message, '[force build]')"
         with:
-          docker_build_args: NODE_VERSION=${{ matrix.node-version }}
+          docker_build_args: NODE_BROWSER_VERSION=${{ matrix.node-browser-version }}
         uses: ./.github/actions/build-and-publish
       - name: Build and Publish (force)
         if: "contains(github.event.head_commit.message, '[force build]')"
         with:
-          docker_build_args: NODE_VERSION=${{ matrix.node-version }}
+          docker_build_args: NODE_BROWSER_VERSION=${{ matrix.node-browser-version }}
         uses: ./.github/actions/build-and-publish-force
 
   sqlplus:
