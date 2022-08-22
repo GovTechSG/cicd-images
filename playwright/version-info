@@ -1,7 +1,0 @@
-#!/bin/sh
-VERSION_CHROME="$(google-chrome --version | cut -d ' ' -f 3)";
-printf "chrome:${VERSION_CHROME}\n";
-VERSION_FIREFOX="$(firefox --version | cut -d ' ' -f 3)";
-printf "firefox:${VERSION_FIREFOX}\n";
-VERSION_PLAYWRIGHT="$(ls /root/.cache/ms-playwright)"
-printf "playwright:${VERSION_PLAYWRIGHT}\n";

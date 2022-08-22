@@ -360,33 +360,6 @@ jobs:
         if: "contains(github.event.head_commit.message, '[force build]')"
         uses: ./.github/actions/build-and-publish-force
 
-  playwright:
-    env:
-      IMAGE_NAME: playwright
-    runs-on: ubuntu-latest
-    name: playwright
-    strategy:
-      matrix:
-        node-browser-version: [ 16.14.2-slim-chrome103-ff102 ]
-    steps:
-      - uses: actions/checkout@v1
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-      - name: Dockerhub login
-        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
-      - name: ECR public login
-        run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
-      - name: Build and Publish
-        if: "!contains(github.event.head_commit.message, '[force build]')"
-        with:
-          docker_build_args: NODE_BROWSER_VERSION=${{ matrix.node-browser-version }}
-        uses: ./.github/actions/build-and-publish
-      - name: Build and Publish (force)
-        if: "contains(github.event.head_commit.message, '[force build]')"
-        with:
-          docker_build_args: NODE_BROWSER_VERSION=${{ matrix.node-browser-version }}
-        uses: ./.github/actions/build-and-publish-force
-
   sqlplus:
     env:
       IMAGE_NAME: sqlplus
