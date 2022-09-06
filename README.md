@@ -17,16 +17,17 @@ https://gallery.ecr.aws/l5k6t5t7/cicd-images
 - Atlantis (`atlantis`)
 - Amazon Web Services CLI (`awscli`)
 - Cypress (`cypress`)
-- Playwright (`playwright`)
 - Docker-in-Docker (`dind`)
 - Google Kubernetes Engine CLI (`gkecli`)
 - Karma Test Runner (`karma`)
 - Kubernetes Client (`kubectl`)
-- Trinity (`awscli` + `docker` + `kubectl`)
 - Node.js (`node`)
+- Pandoc-Node (`pandoc-node`)
 - Pivotal Tracker Commit json (`pivotaltracker-commit`)
+- Playwright (`playwright`)
 - Robot Selenium Generic Image (`chrome-oracle-py`)
 - Sqlplus (`sqlplus`)
+- Trinity (`awscli` + `docker` + `kubectl`)
 - Version Tagging Scripts (`vtscripts`)
 
 ### Release Notes
@@ -102,6 +103,17 @@ Latest URL: `govtechsg/cicd-images:cypress-latest`
 - We decided to use Playwright to simulate concurrent sessions which Cypress cannot simulate due to it's architectural limitation
 - This concurrent session tests are required to test the Singpass single active session rule
 - More info about Playwright: https://playwright.dev/docs/intro
+
+#### `pandoc-node`
+
+Canonical Tag: `pandoc-<REPO_VERSION` \
+Latest URL: `govtechsg/cicd-images:pandoc-latest`
+
+##### Notes
+
+- Pandoc is a conversion library used to convert markdown files to PPTX
+- We use Pandoc to generate our sprint review slides by automating the process of pulling data from our Pivotal story board
+- More info about Pandoc: https://pandoc.org/getting-started.html
 
 #### `dephash`
 

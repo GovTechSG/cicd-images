@@ -1,0 +1,9 @@
+#!/bin/sh
+VERSION_NODE="$(node -v | cut -f 2 -d 'v')";
+printf "node:${VERSION_NODE}\n";
+
+VERSION_PANDOC="$(pandoc -v)";
+printf "npm:${VERSION_PANDOC}\n";
+
+VERSION_YARN="$(yarn --version)";
+printf "yarn:${VERSION_YARN}\n";
