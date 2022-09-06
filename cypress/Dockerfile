@@ -14,7 +14,7 @@ RUN npm install -g cypress mysql pg \
                    cypress-promise \
                    cypress-xpath \
                    eslint @faker-js/faker@5.5.3 fs-extra moment prettier dotenv \
-                   lodash date-fns cypress-fail-fast
+                   lodash date-fns cypress-fail-fast axios glob js-yaml
 
 COPY ./version-info /usr/bin
 
