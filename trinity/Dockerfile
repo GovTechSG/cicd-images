@@ -11,13 +11,12 @@ ENV APK_DEPENDENCIES="bash curl git jq vim python3 make g++ docker py3-pip" \
 
 COPY ./version-info /usr/bin/
 
-RUN yum install -y "${APK_DEPENDENCIES}" \
-    && rm -rf "${PATHS_TO_REMOVE}" \
+RUN yum install -y ${APK_DEPENDENCIES} \
     && curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl \
     && chmod +x ./kubectl \
     && mv ./kubectl /usr/bin/kubectl \
     && chmod +x /usr/bin/version-info \
-    && rm -rf "${PATHS_TO_REMOVE}" \
+    && rm -rf ${PATHS_TO_REMOVE} \
     && useradd -m -u 1000 aws-cli
 
 USER 1000
