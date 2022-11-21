@@ -25,6 +25,8 @@ RUN apt-get update \
     && chmod +x ./kubectl \
     && mv ./kubectl /usr/bin/kubectl \
     && chmod +x /usr/bin/version-info \
+    && rm -f ./awscliv2.zip \
+    && rm -rf ./aws \
     && rm -rf ${PATHS_TO_REMOVE} \
     && useradd -m -u 1000 aws-cli
 
