@@ -14,10 +14,11 @@ ENV DEPENDENCIES="\
 COPY ./version-info /usr/bin/
 
 RUN apt-get update \
-    && apt-get install -y ${DEPENDENCIES} \
+    && apt-get install -y ${DEPENDENCIES} --no-install-recommends \
     && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
     && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" \
-    && apt-get install -y docker-ce docker-ce-cli containerd.io \
+    && apt-get install -y docker-ce docker-ce-cli containerd.io --no-install-recommends \
+    && apt-get upgrade -y \
     && curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
     && unzip awscliv2.zip \
     && ./aws/install \
