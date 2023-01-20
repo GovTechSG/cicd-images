@@ -1,5 +1,5 @@
-ARG REPO_TAG="lts-alpine"
-FROM node:${REPO_TAG}
+ARG NODE_BASE="lts-alpine3.16"
+FROM node:${NODE_BASE}
 
 LABEL description="Image used for running Karma with ChromeHeadless browser. Requires the --no-sandbox flag to be specified to work."
 

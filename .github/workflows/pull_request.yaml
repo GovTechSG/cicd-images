@@ -13,14 +13,16 @@ on:
     branches: [master]
 
 jobs:
-  test_trinity:
+  test_bases:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
-    name: trinity
     steps:
       - uses: actions/checkout@v3
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
+
+      - run: make test NAME=chrome-oracle-py
+
+      - run: make test NAME=karma
+
       - run: make test NAME=trinity
-    env:
-      IMAGE_NAME: trinity
