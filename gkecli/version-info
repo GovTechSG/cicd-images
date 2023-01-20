@@ -1,9 +1,0 @@
-#!/bin/sh
-VERSION_GCLOUD="$(gcloud version --format='json' | jq '."Google Cloud SDK"' | jq -r)";
-VERSION_GIT="$(git --version | cut -d ' ' -f 3)";
-VERSION_DOCKER="$(docker -v | cut -f 5 -d ' ')";
-VERSION_KUBECTL="$(kubectl version --client --output='json' | jq -r '.clientVersion.gitVersion')";
-printf "gcloud:${VERSION_GCLOUD}\n";
-printf "git:${VERSION_GIT}\n";
-printf "docker:${VERSION_DOCKER}\n";
-printf "kubectl:${VERSION_KUBECTL}\n";

@@ -1,6 +1,6 @@
-ARG PYTHON_VERSION=3.7
+ARG PYTHON_VERSION=3.11
 
-FROM python:${PYTHON_VERSION}-slim-stretch
+FROM python:${PYTHON_VERSION}-slim
 
 LABEL maintainer="houdinisparks@gmail.com" \
       description="Base image for python-<version> regression libraries to be used with oracle instantclient"
