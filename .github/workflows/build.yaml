@@ -120,7 +120,7 @@ jobs:
     name: cypress
     strategy:
       matrix:
-        node-version: [ 14.17.6, 16.14.2 ]
+        node-version: [ 16.16.0 ]
     steps:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
