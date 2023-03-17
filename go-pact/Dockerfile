@@ -1,5 +1,6 @@
-ARG GOLANG_MAJOR_VERSION="1.14"
-FROM golang:${GOLANG_MAJOR_VERSION}-buster
+ARG GOLANG_MAJOR_VERSION="refer to build.yaml"
+ARG GOLANG_RELEASE="refer to build.yaml"
+FROM public.ecr.aws/govtechsg/cicd-images:go-${GOLANG_MAJOR_VERSION}-${GOLANG_RELEASE}
 
 WORKDIR /opt
 

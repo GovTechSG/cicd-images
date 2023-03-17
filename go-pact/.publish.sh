@@ -10,6 +10,9 @@ VERSION_PACT_MOCK_SERVICE=$(printf "${VERSIONS}" | grep pact-mock-service | cut 
 EXISTENCE_TAG="golang-${VERSION_GOLANG}_pact-mock-service-${VERSION_PACT_MOCK_SERVICE}";
 EXISTENCE_REPO_URL="${REPOSITORY_URL}-${EXISTENCE_TAG}";
 GO_PACT_VERSION_REPO_URL="${REPOSITORY_URL}-${VERSION_GOLANG}";
+if [[ "${GOLANG_RELEASE}" != "buster" ]]; then #! for backward compatibility
+  GO_PACT_VERSION_REPO_URL="${REPOSITORY_URL}-${VERSION_GOLANG}-${GOLANG_RELEASE}"
+
 
 printf "Checking existence of [${EXISTENCE_REPO_URL}]...";
 _="$(docker pull "${EXISTENCE_REPO_URL}")" && EXISTS=$?;
