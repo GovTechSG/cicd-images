@@ -200,6 +200,34 @@ jobs:
         if: "contains(github.event.head_commit.message, '[force build]')"
         uses: ./.github/actions/build-and-publish-force
 
+  go:
+    env:
+      IMAGE_NAME: go
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go-version: [1.15, 1.16, 1.17, 1.18, 1.19, 1.20]
+        go-release: [buster, bullseye]
+    name: go
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Dockerhub login
+        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
+      - name: ECR public login
+        run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
+      - name: Build and Publish
+        if: "!contains(github.event.head_commit.message, '[force build]')"
+        with:
+          docker_build_args: GOLANG_MAJOR_VERSION=${{ matrix.go-version }},GOLANG_RELEASE=${{ matrix.go-release }}
+        uses: ./.github/actions/build-and-publish
+      - name: Build and Publish (force)
+        if: "contains(github.event.head_commit.message, '[force build]')"
+        with:
+          docker_build_args: GOLANG_MAJOR_VERSION=${{ matrix.go-version }},GOLANG_RELEASE=${{ matrix.go-release }}
+        uses: ./.github/actions/build-and-publish-force
+
   go-pact:
     env:
       IMAGE_NAME: go-pact
@@ -207,6 +235,7 @@ jobs:
     strategy:
       matrix:
         go-version: [1.15, 1.16, 1.17, 1.18, 1.19]
+        go-release: [buster, bullseye]
     name: go-pact
     steps:
       - uses: actions/checkout@v1
@@ -219,12 +248,12 @@ jobs:
       - name: Build and Publish
         if: "!contains(github.event.head_commit.message, '[force build]')"
         with:
-          docker_build_args: GOLANG_MAJOR_VERSION=${{ matrix.go-version }}
+          docker_build_args: GOLANG_MAJOR_VERSION=${{ matrix.go-version }},GOLANG_RELEASE=${{ matrix.go-release }}
         uses: ./.github/actions/build-and-publish
       - name: Build and Publish (force)
         if: "contains(github.event.head_commit.message, '[force build]')"
         with:
-          docker_build_args: GOLANG_MAJOR_VERSION=${{ matrix.go-version }}
+          docker_build_args: GOLANG_MAJOR_VERSION=${{ matrix.go-version }},GOLANG_RELEASE=${{ matrix.go-release }}
         uses: ./.github/actions/build-and-publish-force
 
   karma:
