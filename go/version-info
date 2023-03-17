@@ -1,0 +1,3 @@
+#!/bin/sh
+VERSION_GOLANG="$(go version | awk '{ print substr($3,3) }')";
+printf "golang:${VERSION_GOLANG}-${GOLANG_RELEASE}\n";
