@@ -10,7 +10,6 @@ runs:
   steps:
     - name: Build and publish force
       run: |
-        ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" "${{ inputs.docker_build_args}}" "${ECR_REPO}";
-        ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}" --force;
+        ./.scripts/.build.sh "${ECR_REPO}" "${IMAGE_NAME}" "${{ inputs.docker_build_args}}";
         ./${IMAGE_NAME}/.publish.sh "${ECR_REPO}:${IMAGE_NAME}" --force;
       shell: bash
