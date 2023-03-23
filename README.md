@@ -258,6 +258,8 @@ This image helps to implement the load testing using K6. Check here for more inf
 
 ## Other Uses
 
+NOTE: Using Dockerhub flow for local testing, actual flow is using AWS ECR.
+
 Images specified here can be uploaded to other repositories if you so wish. The commands are:
 
 ### For Building

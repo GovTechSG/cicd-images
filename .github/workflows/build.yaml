@@ -11,7 +11,6 @@ on:
 
 env:
   ECR_REPO: public.ecr.aws/l5k6t5t7/cicd-images
-  DH_REPO: govtechsg/cicd-images
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
 
