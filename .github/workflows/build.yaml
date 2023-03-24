@@ -4,7 +4,7 @@ name: build and publish
 # events but only for the master branch
 on:
   push:
-    branches: [ master, 0323-remove-dockerhub-push ]
+    branches: [ master ]
   schedule:
     - cron:  '15 0 * * *'
   workflow_dispatch:
