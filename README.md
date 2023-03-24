@@ -6,7 +6,7 @@ This repository is a collection of container images we use internally for contin
 
 Daily builds are run against these images and automatically sent to our public ECR repository at
 
-https://gallery.ecr.aws/l5k6t5t7/cicd-images
+https://gallery.ecr.aws/govtechsg/cicd-images/
 
 ## Catalog (Alphabetical Order)
 
@@ -32,10 +32,10 @@ https://gallery.ecr.aws/l5k6t5t7/cicd-images
 
 ### Release Notes
 
-The images are found in the [Public ECR](public.ecr.aws/l5k6t5t7/cicd-images), and the names of the
+The images are found in the [Public ECR](public.ecr.aws/govtechsg/cicd-images), and the names of the
 different types of images are added as a tag. For example given a type of image called `xyz`, it will be available under
-the repository URL `public.ecr.aws/l5k6t5t7/cicd-images:xyz-latest`. Specific versions can be found in
-https://gallery.ecr.aws/l5k6t5t7/cicd-images
+the repository URL `public.ecr.aws/govtechsg/cicd-images:xyz-latest`. Specific versions can be found in
+https://gallery.ecr.aws/govtechsg/cicd-images/
 
 ### Universal Tooling
 
