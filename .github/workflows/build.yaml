@@ -4,7 +4,7 @@ name: build and publish
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: [ master, 0323-remove-dockerhub-push ]
   schedule:
     - cron:  '15 0 * * *'
   workflow_dispatch:
@@ -32,8 +32,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Dockerhub login
-        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
@@ -52,8 +50,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Dockerhub login
-        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
@@ -72,8 +68,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Dockerhub login
-        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
@@ -97,8 +91,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Dockerhub login
-        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
@@ -124,8 +116,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Dockerhub login
-        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
@@ -148,8 +138,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Dockerhub login
-        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
@@ -168,8 +156,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Dockerhub login
-        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
@@ -188,8 +174,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Dockerhub login
-        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
@@ -211,8 +195,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Dockerhub login
-        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
@@ -239,8 +221,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Dockerhub login
-        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
@@ -263,8 +243,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Dockerhub login
-        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
@@ -286,8 +264,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Dockerhub login
-        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
@@ -310,8 +286,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Dockerhub login
-        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
@@ -330,8 +304,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Dockerhub login
-        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
@@ -350,8 +322,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Dockerhub login
-        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
@@ -370,8 +340,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Dockerhub login
-        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
@@ -390,8 +358,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Dockerhub login
-        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
@@ -410,8 +376,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Dockerhub login
-        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
@@ -430,8 +394,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Dockerhub login
-        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
@@ -450,8 +412,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Dockerhub login
-        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
