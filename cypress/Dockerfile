@@ -1,7 +1,7 @@
 # see build.yaml for actual version passed from pipeline
-ARG NODE_VERSION="16.16.0"
+ARG NODE_VERSION="16.18.1"
 
-FROM cypress/browsers:node${NODE_VERSION}-chrome107-ff107
+FROM cypress/browsers:node-${NODE_VERSION}-chrome-110.0.5481.96-1-ff-109.0-edge-110.0.1587.41-1
 
 LABEL description="Image used for running Cypress testing framework"
 
