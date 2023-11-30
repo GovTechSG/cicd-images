@@ -2,7 +2,6 @@
 REPOSITORY_URL=$1;
 
 TAG="${REPOSITORY_URL}-next";
-TAG_LATEST="${REPOSITORY_URL}-latest";
 
 VERSIONS=$(docker run --entrypoint="version-info" ${TAG});
 echo $VERSIONS
@@ -23,9 +22,6 @@ if [[ "${EXISTS}" = "0" ]]  && [[ "$*" != *"--force"* ]]; then
   echo exists;
 else
   printf "[${EXISTENCE_REPO_URL}] not found. Pushing new image...\n";
-  printf "Pushing [${TAG_LATEST}]... ";
-  docker tag ${TAG} ${TAG_LATEST};
-  docker push ${TAG_LATEST};
   docker tag ${TAG} ${TAG_NODE_LATEST};
   docker push ${TAG_NODE_LATEST};
   printf "Pushing [${EXISTENCE_REPO_URL}]... ";
