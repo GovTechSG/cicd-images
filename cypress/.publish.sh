@@ -1,9 +1,11 @@
 #!/bin/bash
 REPOSITORY_URL=$1;
-TAG=$2;
+
+# e.g public.ecr.aws/<govtech-ecr-id>/cicd-images:cypress-next
+NEXT_TAG="${REPOSITORY_URL}-next";
 
 # e.g node-18.15.0-chrome-106.0.5249.61-1-ff-99.0.1-edge-114.0.1823.51-1
-EXISTENCE_TAG="${TAG}";
+EXISTENCE_TAG=$2;
 
 # e.g public.ecr.aws/<govtech-ecr-id>/cicd-images:cypress-node-18.15.0-chrome-106.0.5249.61-1-ff-99.0.1-edge-114.0.1823.51-1
 EXISTENCE_REPO_URL="${REPOSITORY_URL}-${EXISTENCE_TAG}";
@@ -19,6 +21,9 @@ if [[ "${EXISTS}" = "0" ]]  && [[ "$*" != *"--force"* ]]; then
   echo exists;
 else
   printf "[${EXISTENCE_REPO_URL}] not found. Pushing new image...\n";
+  printf "Pushing [${EXISTENCE_REPO_URL}]... ";
+  docker tag ${TAG} ${EXISTENCE_REPO_URL};
+  docker push ${EXISTENCE_REPO_URL};
   printf "Pushing [${TAG_LATEST}]... ";
   docker tag ${TAG} ${TAG_NODE_LATEST};
   docker push ${TAG_NODE_LATEST};
@@ -26,9 +31,3 @@ else
   docker tag ${TAG} ${EXISTENCE_REPO_URL};
   docker push ${EXISTENCE_REPO_URL};
 fi;
-
-
-printf "Pushing [${TAG}]... ";
-docker push ${TAG};
-docker tag ${TAG} ${TAG_NODE_LATEST};
-docker push ${TAG_NODE_LATEST};
