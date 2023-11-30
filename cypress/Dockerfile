@@ -1,11 +1,15 @@
 # see build.yaml for actual version passed from pipeline
-ARG NODE_VERSION="16.18.1"
-
-FROM cypress/browsers:node-${NODE_VERSION}-chrome-110.0.5481.96-1-ff-109.0-edge-110.0.1587.41-1
+ARG NODE_VERSION="set-from-argument"
+FROM cypress/browsers:${NODE_VERSION}
 
 LABEL description="Image used for running Cypress testing framework"
 
 WORKDIR /app
+
+RUN apt update
+
+ARG DEBIAN_FRONTEND="noninteractive"
+RUN apt install -y jq awscli xvfb
 
 RUN npm install -g cypress mysql pg \
                    mocha mocha-steps mochawesome mochawesome-merge \

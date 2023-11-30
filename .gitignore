@@ -21,3 +21,4 @@
 ## Codes
 **/node_modules/*
 **/videos/*
+.DS_Store
