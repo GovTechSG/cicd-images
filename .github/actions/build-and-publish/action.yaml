@@ -1,15 +1,15 @@
-name: "build and publish"
-description: "Builds and Publish the docker image"
+name: 'build and publish'
+description: 'Builds and Publish the docker image'
 inputs:
-  docker_build_args: # id of input
-    description: "Docker build arguments"
+  docker_build_args:  # id of input
+    description: 'Docker build arguments'
     required: false
-    default: ""
+    default: ''
 runs:
   using: "composite"
   steps:
     - name: Build and publish
       run: |
-        ./.scripts/.build.sh "${ECR_REPO}" "${IMAGE_NAME}" "${{ inputs.docker_build_args }}";
-        ./${IMAGE_NAME}/.publish.sh "${ECR_REPO}:${IMAGE_NAME}" "${{ inputs.docker_build_args }}";
+        ./.scripts/.build.sh "${ECR_REPO}" "${IMAGE_NAME}" "${{ inputs.docker_build_args}}";
+        ./${IMAGE_NAME}/.publish.sh "${ECR_REPO}:${IMAGE_NAME}";
       shell: bash
