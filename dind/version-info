@@ -3,7 +3,7 @@ VERSION_GIT="$(git --version | cut -d ' ' -f 3)";
 VERSION_DOCKER="$(docker -v | cut -f 3 -d ' ' | cut -f 1 -d ',')";
 VERSION_DOCKER_COMPOSE="$(docker-compose -v | cut -f4 -d' ' | sed 's/v//')";
 VERSION_PYTHON3="$(python3 --version | cut -f2 -d ' ')";
-VERSION_ZULU_JDK="$(java --version | grep 'Runtime Environment' | cut -f4 -d ' ' | cut -f1 -d '-' | sed 's/Zulu//')";
+VERSION_ZULU_JDK="$(java --version | grep 'Runtime Environment' | cut -f4 -d ' ' | cut -f1 -d '+' | sed 's/Zulu//')";
 ssh -V &>/tmp/sshv \
   && VERSION_SSL=$(cat /tmp/sshv) \
   && rm -rf /tmp/sshv;
