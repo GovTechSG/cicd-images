@@ -1,4 +1,4 @@
-FROM docker:20.10.16-alpine3.15
+FROM docker:20.10.24-alpine3.18
 
 LABEL maintainer="Ryan <Ryan_goh@tech-gov-sg>" \
       description="Docker-in-Docker container for use in CI pipelines"
