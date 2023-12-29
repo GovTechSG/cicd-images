@@ -8,6 +8,15 @@ Daily builds are run against these images and automatically sent to our public E
 
 https://gallery.ecr.aws/govtechsg/cicd-images/
 
+## Latest Announcement
+
+This repo is being reevaluated by internal team, to identify if it is serving its original purpose.
+- Base images which weren't provided by the official parties, but they are now (e.g. node)
+- The project teams who created/used some of the base images have moved on to other techstacks. (e.g. sqlplus, pivotaltracker-commit)
+- Base images provided by official party is updated infrequently (e.g. atlantis)
+- Base images which are the powerhouse containing multiple techstack  (e.g. trinity, dind)
+- Base images which may be still useful (e.g. vtscripts, cypress)
+
 ## Catalog (Alphabetical Order)
 
 - Alpine Linux (`alpine`)
