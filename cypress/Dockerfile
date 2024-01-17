@@ -2,7 +2,6 @@
 ARG NODE_VERSION="16.18.1"
 
 # set as the latest one, i don't include edge because ... meh
-ARG CYPRESS_VERSION="13.6.3"
 ARG CHROME_VERSION="120.0.6099.224-1"
 ARG FIREFOX_VERSION="121.0.1"
 
@@ -20,7 +19,7 @@ RUN apt update
 ARG DEBIAN_FRONTEND="noninteractive"
 RUN apt install -y jq awscli libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libnss3 libxss1 libasound2 libxtst6 xauth xvfb
 
-RUN npm install -g mysql pg \
+RUN npm install -g cypress mysql pg \
                    mocha mocha-steps mochawesome mochawesome-merge \
                    mochawesome-report-generator \
                    cypress-eslint-preprocessor \
