@@ -2,7 +2,6 @@
 ARG NODE_VERSION="16.18.1"
 
 # set as the latest one, i don't include edge because ... meh
-ARG CYPRESS_VERSION="13.6.3"
 ARG CHROME_VERSION="120.0.6099.224-1"
 ARG FIREFOX_VERSION="121.0.1"
 
@@ -27,9 +26,10 @@ RUN npm install -g cypress mysql pg \
                    cypress-promise \
                    cypress-xpath \
                    eslint @faker-js/faker@5.5.3 fs-extra moment prettier dotenv \
-                   lodash date-fns cypress-fail-fast axios glob js-yaml @govtechsg/purple-hats
+                   lodash date-fns cypress-fail-fast axios glob js-yaml
 
-# Install node dependencies for the purple-hats - https://github.com/GovTechSG/purple-hats/blob/master/INTEGRATION.md
+# Install the purple-hats and its node dependencies - https://github.com/GovTechSG/purple-hats/blob/master/INTEGRATION.md
+RUN npm install -g @govtechsg/purple-hats playwright
 RUN npm install --prefix $(npm root -g)/@govtechsg/purple-hats
 
 COPY ./version-info /usr/bin
