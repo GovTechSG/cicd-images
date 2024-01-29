@@ -10,11 +10,10 @@ https://gallery.ecr.aws/govtechsg/cicd-images/
 
 ## Catalog (Alphabetical Order)
 
+> Maintained
+
 - Alpine Linux (`alpine`)
-- Ansible (`ansible`)
 - Atlantis (`atlantis`)
-- Amazon Web Services CLI (`awscli`): no longer maintained; use the official image from
-  AWS, https://hub.docker.com/r/amazon/aws-cli
 - Cypress (`cypress`)
 - Docker-in-Docker (`dind`)
 - Google Kubernetes Engine CLI (`gkecli`)
@@ -22,13 +21,19 @@ https://gallery.ecr.aws/govtechsg/cicd-images/
 - Kubernetes Client (`kubectl`)
 - Node.js (`node`)
 - Pandoc-Node (`pandoc-node`)
+- Trinity (`awscli` + `docker` + `kubectl`)
+- Version Tagging Scripts (`vtscripts`)
+- K6 load testing (`k6`)
+
+> Konmari (Bye Bye)
+
+- Amazon Web Services CLI (`awscli`): no longer maintained; use the official image from
+- Ansible (`ansible`)
+- AWS, https://hub.docker.com/r/amazon/aws-cli
 - Pivotal Tracker Commit json (`pivotaltracker-commit`)
 - Playwright (`playwright`)
 - Robot Selenium Generic Image (`chrome-oracle-py`)
 - Sqlplus (`sqlplus`)
-- Trinity (`awscli` + `docker` + `kubectl`)
-- Version Tagging Scripts (`vtscripts`)
-- K6 load testing (`k6`)
 
 ### Release Notes
 
